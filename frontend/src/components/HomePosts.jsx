@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PostDetails } from "../pages/PostDetails.jsx";
 
+
 const HomePosts = ({ post }) => {
   return (
     <div className="w-full flex flex-col items-center  mt-8  space-y-5  md:flex-col md:items-center lg:flex-row lg:justify-around ">
