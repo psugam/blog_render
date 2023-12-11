@@ -13,10 +13,12 @@ import axios from "axios";
 import { comment } from "postcss";
 import { Navigate, useNavigate } from "react-router-dom";
 import { UpdatePost } from "./UpdatePost.jsx";
+import { UserPosts } from "./UserPosts.jsx";
 
 
 export const PostDetails = () => {
 
+  
 
 const navigate=useNavigate();
 
@@ -170,7 +172,13 @@ user._id!==postCreator?
          
         </div>
         <div className="flex items-center justify-start space-x-5 mt-2 md:mt-4">
-          <div>@{details.username}</div>
+          <div onClick={()=>{
+            navigate('/user/'+details.userId)
+          }}
+          className="cursor-pointer"
+          >
+           @{details.username}
+            </div>
           <div className="flex space-x-2">
             <p>{new Date(details.updatedAt).toString().slice(0, 15)}</p>
             <p>{new Date(details.updatedAt).toString().slice(15, 24)}</p>
@@ -206,7 +214,8 @@ user._id!==postCreator?
         </div>
 
         <>
-        
+           <h1 className="text-3xl font-mono mt-5">Comments:</h1>
+
    {
       comments.map((comment, id)=>{
         return<div key={id} className="flex flex-col mt-4 space-y-2">
@@ -263,7 +272,10 @@ user._id!==postCreator?
     <input
       type="text"
       className=" rounded-2xl w-full h-12 text-center"
-      placeholder=''
+      placeholder={editCommentValue.comment}
+      onLoad={(e)=>{
+        e.target.value=editCommentValue.comment;
+      }}
       onChange={(e)=>{
         setAddComments(e.target.value);
       }}

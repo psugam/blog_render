@@ -12,6 +12,8 @@ import { EditPage } from "./pages/EditPage.jsx";
 import {ProfilePage } from './pages/ProfilePage.jsx'
 import {UserContextProvider} from './contexts/UserContext.jsx';
 import { UpdatePost } from "./pages/UpdatePost.jsx";
+import About from "./pages/About.jsx";
+import { UserPosts } from "./pages/UserPosts.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -56,6 +58,8 @@ function App() {
         </>
         }
         />
+        <Route path="/about" element={<About/>}/>
+        <Route path='/user/:id' element={<UserPosts/>}/>
         </Routes>
         </UserContextProvider>
 
