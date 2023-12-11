@@ -61,9 +61,10 @@ export const Home = () => {
               No posts available
             </h3>
             <img
-              src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1701966506~exp=1701967106~hmac=31c4667cc3f2343a7b9cb9262b68c4b95d140a0c42831def53c8bee89b6b509b"
+             // src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1701966506~exp=1701967106~hmac=31c4667cc3f2343a7b9cb9262b68c4b95d140a0c42831def53c8bee89b6b509b"
+             src='https://banner2.cleanpng.com/20180701/kbc/kisspng-http-404-error-message-information-not-found-5b38efc8711914.6829505415304580564633.jpg'
               alt=""
-              className="w-[75%] flex mx-auto"
+              className="w-[75%] flex mx-auto rounded-3xl mt-5"
             />
           </div>
         ):

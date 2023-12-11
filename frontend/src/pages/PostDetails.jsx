@@ -24,12 +24,12 @@ const {user}=useContext(UserContext);
   // const {user}=useContext(UserContext);
   const [details, setDetails]=useState({});
   const postId=useParams();
-  
+  const [editing, setEditing]=useState(false);
   const [comments, setComments]=useState([]);
   const [canedit, setCanedit]=useState(false);
   const [addComments, setAddComments]=useState('');
   const postCreator=details.userId;
-  
+    const [editCommentValue, setEditCommentValue]=useState([]);
 
   const handleNewComment=async()=>{
     try{
@@ -93,6 +93,32 @@ const {user}=useContext(UserContext);
         console.log(e);
       }
     }
+    const handleEditButton=()=>{
+      setCanedit(!canedit);
+    }
+
+    const handleEditComment=async()=>{
+      try{
+       const id=editCommentValue._id;
+       console.log(id);
+        const res=await axios.put(URL+'/comment/'+id,{
+          comment:addComments,
+        });
+        if(res.data.comment!==addComments){
+          console.log('Comment Edit Failed')
+        }
+        else{
+          console.log(res.data);
+          navigate('/posts/post/'+editCommentValue.postId);
+          setCanedit(false);
+        }
+        
+
+      }catch(e){
+console.log(e);
+      }
+    }
+
 
   useEffect(()=>{
 fetchPost();
@@ -198,7 +224,14 @@ user._id!==postCreator?
                 user._id===comment.userId ?
                   <>
                                     <p>
-                    <MdEdit className="h-full" />
+                    <MdEdit 
+                    className="h-full cursor-pointer" 
+                    onClick={()=>{
+                      setEditCommentValue(comment);
+                      handleEditButton();
+                    }}
+
+                    />
                   </p>
                   <p>
                     <MdDelete className="h-full cursor-pointer"
@@ -223,6 +256,27 @@ user._id!==postCreator?
       </div>
       })
       }
+{
+  canedit ? <div className="flex flex-col space-y-3">
+  <h3 className="mt-6 mb-2 font-semibold">Edit your comment : </h3>
+  <div>
+    <input
+      type="text"
+      className=" rounded-2xl w-full h-12 text-center"
+      placeholder=''
+      onChange={(e)=>{
+        setAddComments(e.target.value);
+      }}
+    />
+    <button
+    className="bg-gray-500 p-3 mt-3 rounded-3xl font-semibold hover:bg-gray-200 hover:text-gray-700"
+    onClick={handleEditComment}
+    >
+      Edit Comment
+    </button>
+  </div>
+</div> :''
+}
 
         <div className="flex flex-col space-y-3">
           <h3 className="mt-6 mb-2 font-semibold">Write a comment: </h3>

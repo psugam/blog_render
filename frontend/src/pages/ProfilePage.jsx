@@ -67,11 +67,13 @@ export const ProfilePage = () => {
                  return <HomePosts key={post._id} post={post}/>
                 // console.log(post._id)
                 })
-                ):(
+                ):
+                noresult?
+                (
                   <div className='w-full'>
                   <img src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1701966506~exp=1701967106~hmac=31c4667cc3f2343a7b9cb9262b68c4b95d140a0c42831def53c8bee89b6b509b" alt="Posts not found" />
                 </div>
-                )
+                ):''
                }
             </div>
             {
