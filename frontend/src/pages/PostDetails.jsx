@@ -58,7 +58,7 @@ const {user}=useContext(UserContext);
       setDetails(res.data);
       // console.log(res.data);
       // console.log(details);
-      // console.log(user);
+       console.log(user);
     }catch(e){
       console.log(e);
     }

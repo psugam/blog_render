@@ -102,7 +102,7 @@ router.get('/logout',verifyToken, async(req, res)=>{
 
 //REFETCH USER
 
-router.get("/refetch", (req,res)=>{
+router.get("/refetch",verifyToken, (req,res)=>{
   const token=req.cookies.token
   //console.log(token);
   jwt.verify(token,process.env.SECRET,{},async (err,data)=>{
