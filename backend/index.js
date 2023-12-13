@@ -7,7 +7,7 @@ const app = express();
 const multer=require('multer');
 app.use(
   cors({
-    origin:'https://sugam.vercel.app', 
+    origin:'https://sugamblog.vercel.app', 
     credentials:true
   }));
 app.use(express.json());
