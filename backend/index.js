@@ -4,15 +4,12 @@ const dotenv = require("dotenv").config();
 const cookieParser=require('cookie-parser');
 const cors=require('cors');
 const app = express();
-const path=require('path');
-const __my_dirname=path.resolve();
-
-app.use(express.static(path.join(__my_dirname, '/frontend/dist')));
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__my_dirname, 'frontend', 'dist', 'index.html'));
-})
 const multer=require('multer');
-app.use(cors({origin:'http://localhost:5173', credentials:true}));
+app.use(
+  cors({
+    origin:'http://localhost:5173', 
+    credentials:true
+  }));
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
