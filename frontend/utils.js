@@ -1,2 +1,2 @@
-export const URL='http://localhost:4000/api'
+export const URL='https://psugam.vercel.app/api'
 //export let isUser=false;
