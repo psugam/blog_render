@@ -6,7 +6,7 @@ const cors=require('cors');
 const app = express();
 const multer=require('multer');
 
-app.set("trust proxy", 1);
+app.set("trust proxy", true);
 app.use(
   cors({
     origin:'https://sugamblog.vercel.app', 
