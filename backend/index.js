@@ -9,7 +9,7 @@ app.use(
   cors({
     origin:'https://sugamblog.vercel.app', 
     methods:["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
+    credentials: 'include',
     allowedHeaders:true
   }));
 
