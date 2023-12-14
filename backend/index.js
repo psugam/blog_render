@@ -10,7 +10,7 @@ app.use(
     origin:'https://sugamblog.vercel.app', 
     methods:["POST", "GET", "PUT", "DELETE"],
     credentials: 'include',
-    allowedHeaders:true
+    allowedHeaders:true,
   }));
 
 app.use(express.json());
