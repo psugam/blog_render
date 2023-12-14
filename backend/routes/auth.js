@@ -75,7 +75,7 @@ router.post("/login", async (req, res, next) => {
       username:user.username,
       email:user.email
 
-  }, process.env.SECRET, {maxAge:10*600000});
+  }, process.env.SECRET, {expiresIn:'3d'});
   const{password, ...info}=user._doc;
   res.cookie('token', token, {
     httpOnly: true, 
