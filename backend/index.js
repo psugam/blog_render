@@ -5,10 +5,14 @@ const cookieParser=require('cookie-parser');
 const cors=require('cors');
 const app = express();
 const multer=require('multer');
+
+app.set("trust proxy", 1);
 app.use(
   cors({
     origin:'https://sugamblog.vercel.app', 
-    credentials:true
+    methods:["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders:true,
   }));
 app.use(express.json());
 
