@@ -6,7 +6,10 @@ const cors=require('cors');
 const app = express();
 const multer=require('multer');
 
-app.set("trust proxy", true);
+
+app.use(express.json());
+
+//app.set("trust proxy", true);
 app.use(
   cors({
     origin:'https://sugamblog.vercel.app', 
@@ -14,7 +17,7 @@ app.use(
     credentials: true,
     allowedHeaders:true,
   }));
-app.use(express.json());
+
 
 const port = process.env.PORT || 5000;
 const connectDB = async () => {
